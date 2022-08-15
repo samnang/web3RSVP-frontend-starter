@@ -34,12 +34,12 @@ async function makeFileObjects(body) {
   return files;
 }
 
-async function makeStoreClient() {
-  return new Web3Storage({ token: process.env.WEB3STORAGE_TOKEN });
-}
-
 async function storeFiles(files) {
-  const client = makeStoreClient();
+  const client = makeStorageClient();
   const cid = await client.put(files);
   return cid;
+}
+
+function makeStorageClient() {
+  return new Web3Storage({ token: process.env.WEB3STORAGE_TOKEN });
 }

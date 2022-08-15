@@ -4,6 +4,8 @@ import { ethers } from "ethers";
 function connectContract() {
   const contractAddress = "0xbbE71b93C861B877192F7376E6469fAe1eb8cf89";
   const contractABI = abiJSON.abi;
+  let rsvpContract;
+
   try {
     const { ethereum } = window;
 
